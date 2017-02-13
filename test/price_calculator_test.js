@@ -2,6 +2,10 @@ const assert = require('assert');
 
 import CalculatePrice from '../app/price_calculator.js';
 
+/**
+ * Since this is a really simple demo, I wrote a few tests to verify all the required functionality. In a real setting
+ * I'd make it more robust, by randomizing the prices and amounts.
+ */
 describe('Price calculator', function() {
   describe('CalculatePrice', function() {
     it("should return correct price when there's no discount", function() {

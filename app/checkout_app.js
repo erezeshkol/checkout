@@ -1,7 +1,13 @@
+/**
+ * This is a demo to show the price being calculated live. Since it's not a requirement, I didn't spend much time on
+ * making it (or the code) look nice.
+ * In a real project, I'd separate the classes here to different files, and of course the ui would look better.
+ */
+
 import React from 'react';
 import CalculatePrice from './price_calculator';
 
-const items = [
+const demoItems = [
   {
     id: 'A',
     price: 50,
@@ -55,9 +61,9 @@ class ShoppingCart extends React.Component {
   render() {
     let {price, discount} = CalculatePrice(this.state.items, this.state.cart);
     return <div className="ShoppingCart">
-      Price: {price} <br />
+      Subtotal: {price} <br />
       Discount: {discount} <br />
-      Subtotal: {price - discount}
+      Final Price: {price - discount}
     </div>;
   }
 }
@@ -65,8 +71,16 @@ class ShoppingCart extends React.Component {
 export default class CheckoutApp extends React.Component {
   constructor(props) {
     super(props);
-    // We're getting this from a const defined here. Would normally come from the backend.
-    this.state = {items, cart: {}};
+    this.state = {items: [], cart: {}};
+  }
+
+  componentWillMount() {
+    this.getAvailableItems();
+  }
+
+  getAvailableItems() {
+    // This is where we'd normally get the items from the back end. For this demo, it just comes from a static array.
+    this.setState({items: demoItems});
   }
 
   onAddItem(id) {
@@ -87,7 +101,7 @@ export default class CheckoutApp extends React.Component {
   }
 
   render() {
-    return <div className="SupermarktApp">
+    return <div className="CheckoutApp">
       <ItemCatalogue items={this.state.items} onAddItem={this.onAddItem.bind(this)}
                      onRemoveItem={this.onRemoveItem.bind(this)}/>
       <br />
