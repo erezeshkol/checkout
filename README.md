@@ -5,5 +5,6 @@ The actual required function is in app/price_calculator.js and it has tests in t
 
 ## Instructions
 
-To install dependencies: npm install
-To run tests: npm t
+To install dependencies: npm install.
+
+To run tests: npm t.
