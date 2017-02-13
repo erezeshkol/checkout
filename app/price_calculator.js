@@ -6,18 +6,21 @@
 export default function CalculatePrice(items, cart) {
   let price = 0, discount = 0;
   for (let item in cart) {
-    let itemCount = cart[item];
     let theItem = items.find(i => i.id == item);
-    if (theItem) {
-      price += theItem.price * itemCount;
+    if (!theItem) {
+      throw new Error("Received item not in items list");
+    }
 
-      let itemDiscount = theItem.discount;
-      if (itemDiscount && itemCount >= itemDiscount.amount) {
-        let normalPrice = theItem.price * itemDiscount.amount;
-        discount += (normalPrice - itemDiscount.price);
-      }
+    let itemCount = cart[item];
+    price += theItem.price * itemCount;
+
+    let itemDiscount = theItem.discount;
+    if (itemDiscount && itemCount >= itemDiscount.amount) {
+      let normalPrice = theItem.price * itemDiscount.amount;
+      discount += (normalPrice - itemDiscount.price);
     }
   }
+
 
   return {price, discount};
 }
