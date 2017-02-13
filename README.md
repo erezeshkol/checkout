@@ -8,7 +8,7 @@ The actual required function is in app/price_calculator.js and it has tests in t
 ```
 git clone https://github.com/erezeshkol/checkout.git
 cd checkout
-npm install
+npm i
 npm t
 
 To run webserver with gui:
