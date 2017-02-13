@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --content-base dist/ --port 8181"
   },
   "repository": {
     "type": "git",
