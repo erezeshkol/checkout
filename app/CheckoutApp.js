@@ -38,7 +38,7 @@ function Item({id, price, onAddItem, onRemoveItem}) {
 function ItemCatalogue({items, onAddItem, onRemoveItem}) {
   return <div className="AvailableItems">
     {
-      items.map(item => <Item key={item.name} {...item} onAddItem={onAddItem} onRemoveItem={onRemoveItem}/>)
+      items.map(item => <Item key={item.id} {...item} onAddItem={onAddItem} onRemoveItem={onRemoveItem}/>)
     }
   </div>;
 }
