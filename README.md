@@ -14,7 +14,3 @@ npm t
 To run webserver with gui:
 npm start (and then surf to localhost:8181)
 ```
-
-To install dependencies: npm install.
-
-To run tests: npm t.
