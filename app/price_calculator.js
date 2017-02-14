@@ -8,6 +8,9 @@
  *              in the items array, or the function throws.
  *
  * @throws Error if the cart contains an illegal item (an item not included in the items array).
+ *
+ * @returns a map: {price: X, discount: Y}, where 'price' is the total price before discounts and 'discount' is the
+ *                  total discount on the items in the cart. The final price is then (price - discount).
  */
 export default function CalculatePrice(items, cart) {
   let price = 0, discount = 0;
