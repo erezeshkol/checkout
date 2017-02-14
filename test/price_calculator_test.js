@@ -8,6 +8,16 @@ import CalculatePrice from '../app/price_calculator.js';
  */
 describe('Price calculator', function() {
   describe('CalculatePrice', function() {
+    it("should return 0 when there are no items or cart", function() {
+      assert.deepEqual(CalculatePrice([], {}), {price: 0, discount: 0});
+    });
+    it("should return 0 when there are no items in cart", function() {
+      const items = [
+        {id: 'A', price: 100, discount: {amount: 3, price: 250}},
+        {id: 'B', price: 50, discount: {amount: 2, price: 75}},
+      ];
+      assert.deepEqual(CalculatePrice(items, {}), {price: 0, discount: 0});
+    });
     it("should return correct price when there's no discount", function() {
       const items = [
         {id: 'A', price: 100}
